@@ -1,2 +1,2 @@
 # JS Algorithms and Data Structures
-Data structures and algorithm implementations in JavaScript
+Data structures and algorithm implementations in JavaScript ✨
