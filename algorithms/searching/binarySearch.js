@@ -1,31 +1,33 @@
+
 /**
- * Searches for an integer in a sorted array in O(log(n)) time
- * @param {Number[]} arr the array to search 
- * @param {Number} target the target element
- * @returns the index of the target element if found
+ *  Searches for an integer in a sorted array in O(log(n)) time
+ * @param {number[]} nums The array to search
+ * @param {number} target The target element
+ * @return {number} the index of the target element if found
  */
-const binarySearch = (arr, target) => {
-    // Define our starting and stopping indicies
-    let start = 0, stop = arr.length - 1
-    // while the starting and stopping indicies aren't equal
-    while (start <= stop) {
-        // get the midpoint of the array
-        const middle = Math.floor((stop + start) / 2)
-        // return the index if we found the target
-        if (arr[middle] === target) {
-            return middle
-        } else if (arr[middle] < target) {
-            // move to the upper half of the array if our target is bigger
-            // than the element at the midpoint
-            start = middle + 1
-        } else {
-            // move to the lower half of the array if our target is
-            // lower than the element at the midpoint
-            stop = middle - 1
-        }
+const binarySearch = (nums, target) => {
+  // Declare our low index, high index, and mid
+  let low = 0, high = nums.length - 1, mid
+
+  while (low <= high) {
+    // Calculate the midpoint of the array length
+    mid = ((low + high) / 2) | 0
+
+    // Return the index if we found our target
+    if (target === nums[mid]) {
+      return mid
     }
-    // Return -1 if we can't find anything
-    return -1
+
+    // Move to the upper half of the array if target is bigger,
+    // Else move to the lower half
+    if (target > nums[mid]) {
+      low = mid + 1
+    } else {
+      high = mid - 1
+    }
+  }
+  // Return -1 if we couldn't find our target
+  return -1
 }
 
 /**
